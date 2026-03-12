@@ -2,9 +2,30 @@
 
 Ever wanted to chat with your PDF documents? Now you can. Upload a PDF (for example your CV) and ask questions — the assistant uses the document content to answer.
 
+![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-green?logo=openai&logoColor=white)
+![LlamaIndex](https://img.shields.io/badge/LlamaIndex-RAG-orange)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+
 <p align="center">
   <img src=".github/assets/banner.png" alt="Banner" />
 </p>
+
+## 🔗 Live Demo
+
+[ai-pdf-chat.vercel.app](https://ai-pdf-chat.vercel.app)
+
+---
+
+## How it works
+
+1. PDF text is extracted and split into chunks
+2. Each chunk is embedded using OpenAI embeddings
+3. Embeddings are stored in a LlamaIndex vector index
+4. On each question, relevant chunks are retrieved and sent to GPT-4o as context
+
+---
 
 ## Technologies
 
@@ -14,6 +35,8 @@ Ever wanted to chat with your PDF documents? Now you can. Upload a PDF (for exam
 - **AI:** [Vercel AI SDK](https://sdk.vercel.ai/) (`ai`), [OpenAI](https://openai.com/) (GPT-4o)
 - **PDF & RAG:** [pdf-parse-fixed](https://www.npmjs.com/package/@cyber2024/pdf-parse-fixed) for text extraction, [LlamaIndex](https://www.llamaindex.ai/) for vector index and retrieval
 - **File upload:** [react-drag-drop-files](https://www.npmjs.com/package/react-drag-drop-files)
+
+---
 
 ## How to start
 
@@ -27,14 +50,14 @@ Ever wanted to chat with your PDF documents? Now you can. Upload a PDF (for exam
 1. **Clone and install**
 
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/oksanadrul/ai-pdf-chat.git
    cd ai-pdf-chat
    npm install
    ```
 
 2. **Environment**
 
-   Create a `.env` file in the project root with your OpenAI API key:
+   Copy `.env.example` to `.env` and add your OpenAI API key:
 
    ```env
    OPENAI_API_KEY=your_openai_api_key_here
@@ -46,7 +69,7 @@ Ever wanted to chat with your PDF documents? Now you can. Upload a PDF (for exam
    npm run dev
    ```
 
-   Open [http://localhost:3000](http://localhost:3000). You’ll be redirected to the upload page.
+   Open [http://localhost:3000](http://localhost:3000). You'll be redirected to the upload page.
 
 ### Other scripts
 
@@ -54,31 +77,29 @@ Ever wanted to chat with your PDF documents? Now you can. Upload a PDF (for exam
 - `npm run start` — run production server (after `npm run build`)
 - `npm run lint` — run ESLint
 
+---
+
 ## How to use
 
 1. **Upload a PDF**  
    On the first screen, drag and drop a PDF or click to browse. Choose your file and click **Continue**. The app extracts text, builds a vector index, and stores it under `./storage`.
 
 2. **Chat with your document**  
-   After upload you’re taken to the chat view. Type questions in the input and send. The assistant uses the indexed PDF content (when relevant) to answer. You can ask about your CV, a report, or any uploaded document.
+   After upload you're taken to the chat view. Type questions in the input and send. The assistant uses the indexed PDF content (when relevant) to answer. You can ask about your CV, a report, or any uploaded document.
 
 3. **Switch document**  
    Use **&lt; Upload a different file** at the top to go back to the upload page and choose another PDF.
 
 ---
 
-## Screenshots: Chat after uploading a CV
-
+## Screenshots
 
 | Step | Description | Image |
 |------|-------------|-------|
 | 1. Upload | Upload PDF screen: drag & drop or browse, then Continue. | <img src=".github/assets/upload.png" alt="Upload" /> |
-| 2. Chat | Chat with your PDF: assistant greeting and message input. |  <img src=".github/assets/greeting.png" alt="Greeting" /> |
-| 3. Example | Example: e.g. “React or Next?” — answer grounded in the document (e.g. CV skills). |  <img src=".github/assets/answer.png" alt="Answer" /> |
-
+| 2. Chat | Chat with your PDF: assistant greeting and message input. | <img src=".github/assets/greeting.png" alt="Greeting" /> |
+| 3. Example | Example: e.g. "React or Next?" — answer grounded in the document (e.g. CV skills). | <img src=".github/assets/answer.png" alt="Answer" /> |
 
 ---
 
-
-
-Built with ❤️ by Oksana Drul
+Built with ❤️ by [Oksana Drul](https://github.com/oksanadrul)
