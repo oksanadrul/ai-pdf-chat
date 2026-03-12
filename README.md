@@ -14,7 +14,7 @@ Ever wanted to chat with your PDF documents? Now you can. Upload a PDF (for exam
 
 ## 🔗 Live Demo
 
-[ai-pdf-chat.vercel.app](https://ai-pdf-chat.vercel.app)
+[ai-pdf-chat-by-oksana.vercel.app]([https://ai-pdf-chat.vercel.app](https://ai-pdf-chat-by-oksana.vercel.app/))
 
 ---
 
