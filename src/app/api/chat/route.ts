@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   console.log("messages", [systemMessage, ...messages]);
   console.log("Matching node:", matchingNode);
 
-  if (matchingNode.score > 0.8) {
+  if (matchingNode?.score != null && matchingNode.score > 0.8) {
     const knowledge = matchingNode.node.getContent(MetadataMode.NONE);
     systemMessage.content = `
        You are a helpful assistant for answering questions about the uploaded PDF file. Use the following extracted information from the PDF to answer the user's question:

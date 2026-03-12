@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@cyber2024/pdf-parse-fixed": "^1.2.5",
+    "@llamaindex/openai": "0.4.22",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/themes": "^2.0.0-rc.3",
     "@types/node": "20.6.4",
@@ -21,7 +22,7 @@
     "encoding": "^0.1.13",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
-    "llamaindex": "^0.0.28",
+    "llamaindex": "0.12.1",
     "next": "13.5.2",
     "openai": "^4.10.0",
     "postcss": "8.4.30",

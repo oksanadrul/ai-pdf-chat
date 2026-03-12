@@ -1,27 +1,20 @@
-import {
-  Document,
-  VectorStoreIndex,
-  serviceContextFromDefaults,
-  storageContextFromDefaults,
-} from "llamaindex";
+import { Document, VectorStoreIndex, Settings, storageContextFromDefaults } from "llamaindex";
+import { OpenAIEmbedding } from "@llamaindex/openai";
 
 export async function createOrReadVectorStoreIndex(
   docText?: string,
 ): Promise<VectorStoreIndex> {
-  const document = new Document({ text: docText });
+  Settings.embedModel = new OpenAIEmbedding();
+  Settings.chunkSize = 512;
+  Settings.chunkOverlap = 50;
 
   const storageContext = await storageContextFromDefaults({
     persistDir: "./storage",
   });
 
-  const serviceContext = serviceContextFromDefaults({
-    chunkSize: 512,
-    chunkOverlap: 50,
-  });
-
   const index = await VectorStoreIndex.fromDocuments(
-    docText ? [document] : [],
-    { storageContext, serviceContext },
+    docText ? [new Document({ text: docText })] : [],
+    { storageContext },
   );
 
   return index;
